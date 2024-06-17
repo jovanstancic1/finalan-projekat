@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stil.css">
+    <script src="igrice.js"></script>
+</head>
+<body>
+    <div class="okvir">
+    </div>
+    <ul>
+        <li><a class="active" href="index.html">Početna</a></li>
+        <li><a href="galerija.html">Galerija</a></li>
+        <li><a href="igrica.html">Moja verzija igrice</a></li>
+        <li style="float:right"><a href="#about">About</a></li>
+      </ul>
+    <h1>Galerija</h1>
+    <h2>Ovo su verzije takvih igara</h2>
+    <div class="slideshow-container">
+
+
+        <!-- Full-width images with number and caption text -->
+        <img src="1.png" alt="Slike" width="800" height="500" id="slika">
+        <br>
+        <button onclick="next()">Sledeca</button>
+        <button onclick="back()">Prethodna</button>
+        <button onclick="slide()">start</button>
+        <button onclick="slidestop()">stop</button>
+        <p></p>
+        <p></p>
+        <p></p>
+        <script>
+            var slike = new Array()
+            slike[0] = "1.png";
+            slike[1] = "2.jpg";
+            slike[2] = "3.gif";
+            slike[3] = "4.webp";
+    
+            var trenutnaslika = 0;
+            var ukupnoslika = slike.length;
+    
+            function next(){
+            console.log('proslo')
+            trenutnaslika++;
+            if(trenutnaslika == ukupnoslika) trenutnaslika = 0;
+            document.getElementById("slika").src = slike[trenutnaslika];
+            }
+            function back() {
+                trenutnaslika--;
+                if(trenutnaslika == -1) trenutnaslika = ukupnoslika - 1
+                document.getElementById("slika").src = slike[trenutnaslika];
+            }
+            var timer;
+            function slide() {
+                timer = setInterval(next, 1000);
+            }
+            function slidestop() {
+                clearInterval(timer)
+            }
+            </script>
+</body>
+</html>
